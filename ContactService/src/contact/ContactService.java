@@ -14,17 +14,21 @@ public class ContactService {
 	 */
 	
 	ArrayList<Object> ContactList = new ArrayList<>;
+	boolean isInContactList;
 	
-	public ContactService() {00
+	public ContactService() {
 		
 		public boolean addContact(Contact c) {
-			boolean isInContactList = false;
+			isInContactList = false;
 			
+			// Check if contact exists in the list
 			for (Contact x: ContactList) {
 				if (x.equals(c)) {
 					isInContactList = true;
 				}
-			}0
+			}
+			
+			// Add Contact to the list if it doesn't exist
 			if (!isInContactList) {
 				ContactList.add(c);
 	
@@ -33,7 +37,21 @@ public class ContactService {
 			}
 		
 		public boolean deleteContact(Contact c) {
+			isInContactList = false;
 			
+			// Check if contact exists in the list
+			for (Contact x: ContactList) {
+				if (x.equals(c)) {
+					isInContactList = true;
+				}
+			}
+			
+			// Remove Contact from list if it exists
+			if(isInContactList) {
+				ContactList.remove(c);
+			} else {
+				return false;
+			}
 		}
 	}
 

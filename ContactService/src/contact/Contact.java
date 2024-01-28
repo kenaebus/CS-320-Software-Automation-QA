@@ -102,6 +102,12 @@ public class Contact {
 	}
 	
 	public void setAddress(String address) {
-		this.address = address;
-	}
+		// Check if the length of address is no longer than 30 and not null
+		if (String.valueOf(address).length() < 30 && String.valueOf(address).length() > 0) {
+			this.address = address;
+		} else {
+			// Send exception of invalid phone number
+			throw new IllegalArgumentException("ERROR: Invalid address")
+		}
+	} 
 }
