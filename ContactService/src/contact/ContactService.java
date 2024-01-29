@@ -13,10 +13,18 @@ public class ContactService {
 	 * 		-Address
 	 */
 	
+	// Initializers
 	ArrayList<Object> ContactList = new ArrayList<>;
 	boolean isInContactList;
 	
 	public ContactService() {
+		
+		/**
+		 *  Add contact credentials into the list of contacts of the ArrayList ContactList
+		 *  Add contact to list if successful, otherwise, return false
+		 *  
+		 *  @return isInContactList
+		 */
 		
 		public boolean addContact(Contact c) {
 			isInContactList = false;
@@ -36,6 +44,13 @@ public class ContactService {
 				return false;
 			}
 		
+		/**
+		 *  Delete a contact's credentials from the list of contacts of the ArrayList ContactList
+		 *  Remove contact credentials if successfull, otherwise return false
+		 *  
+		 *  @return isInContactList
+		 */
+			
 		public boolean deleteContact(Contact c) {
 			isInContactList = false;
 			

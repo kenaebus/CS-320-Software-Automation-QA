@@ -18,28 +18,44 @@ public class Contact {
 	public String phoneNum;
 	public String address;
 	
+	public int updateCalc = 0;
+	
 	// Constructor
 	public Contact() {
 		
 	}
 		
 	public int getID() {
+		/**
+		 * Retrieve a contact's ID
+		 * @return contactID
+		 */
 		return contactID;
 	}
 	
 	public void setID(int contactID) {
-		// FIXME: contactID can be set but can not be changed after initial set
+		/**
+		 * Set an ID that aligns to requirements -- Can only be changed once.
+		 * @param contactID 
+		 */
 		
-		// Check if ID is empty
-		if (this.contactID == 0 && this.contactID != 0) {
+		// Check if ID is empty and haven't been changed more than once
+		if (this.contactID == 0 && updateCalc <= 1) {
 			this.contactID = contactID;
+			updateCalc++;
+
 		} else {
-			throw new IllegalArgumentException("ERROR: Contact ID can't be changed");
+			throw new IllegalArgumentException("ERROR: Contact ID can't be changed"..updateCalc);
 		}
 		
 	}
 	
 	public String getFirstName() {
+		/**
+		 * Retrieve a contact's firstName
+		 * @return firstName
+		 */
+		
 		return firstName;
 	}
 	
@@ -60,6 +76,11 @@ public class Contact {
 	}
 	
 	public String getLastName() {
+		/**
+		 * Retrieve a contact's last name
+		 * @return lastName
+		 */
+		
 		return lastName;
 	}
 	
@@ -79,6 +100,11 @@ public class Contact {
 	}
 	
 	public String getPhoneNumber() {
+		/**
+		 * Retrieve a contact's phone number
+		 * @return phoneNum
+		 */
+		
 		return phoneNum;
 	}
 	
@@ -98,10 +124,20 @@ public class Contact {
 	}
 	
 	public String getAddress() {
+		/**
+		 * Retrieve a contact's address
+		 * @return address
+		 */
+		
 		return address;
 	}
 	
 	public void setAddress(String address) {
+		/**
+		 * Set an address that aligns to requirements
+		 * @param address
+		 */
+		
 		// Check if the length of address is no longer than 30 and not null
 		if (String.valueOf(address).length() < 30 && String.valueOf(address).length() > 0) {
 			this.address = address;
