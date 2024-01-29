@@ -14,39 +14,42 @@ public class ContactService {
 	 */
 	
 	// Initializers
-	ArrayList<Object> ContactList = new ArrayList<>;
+	private ArrayList<Contact> ContactList;
 	boolean isInContactList;
 	
 	public ContactService() {
-		
+		ContactList = new ArrayList<>();
+	}
+	
 		/**
 		 *  Add contact credentials into the list of contacts of the ArrayList ContactList
 		 *  Add contact to list if successful, otherwise, return false
-		 *  
-		 *  @return isInContactList
 		 */
 		
 		public boolean addContact(Contact c) {
 			isInContactList = false;
-			
-			// Check if contact exists in the list
-			for (Contact x: ContactList) {
-				if (x.equals(c)) {
-					isInContactList = true;
-				}
+		
+		// Check if contact exists in the list
+		for (Contact x: ContactList) {
+			if (x.equals(c)) {
+				isInContactList = true;
 			}
-			
-			// Add Contact to the list if it doesn't exist
-			if (!isInContactList) {
-				ContactList.add(c);
-	
-			} else {
-				return false;
-			}
+		}
+		
+		// Add Contact to the list if it doesn't exist
+		if (!isInContactList) {
+			ContactList.add(c);
+			return true;
+
+		} else {
+			return false;
+		}
+	}
+
 		
 		/**
 		 *  Delete a contact's credentials from the list of contacts of the ArrayList ContactList
-		 *  Remove contact credentials if successfull, otherwise return false
+		 *  Remove contact credentials if successful, otherwise return false
 		 *  
 		 *  @return isInContactList
 		 */
@@ -64,10 +67,9 @@ public class ContactService {
 			// Remove Contact from list if it exists
 			if(isInContactList) {
 				ContactList.remove(c);
+				return true;
 			} else {
 				return false;
 			}
 		}
 	}
-
-}

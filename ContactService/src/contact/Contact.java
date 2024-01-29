@@ -1,4 +1,4 @@
-0package contact;
+package contact;
 import java.lang.String;
 
 public class Contact {
@@ -21,8 +21,12 @@ public class Contact {
 	public int updateCalc = 0;
 	
 	// Constructor
-	public Contact() {
-		
+	public Contact(int id, String firstName, String lastName, String phoneNum, String address) {
+		this.contactID = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.phoneNum = phoneNum;
+		this.address = address;
 	}
 		
 	public int getID() {
@@ -45,7 +49,7 @@ public class Contact {
 			updateCalc++;
 
 		} else {
-			throw new IllegalArgumentException("ERROR: Contact ID can't be changed"..updateCalc);
+			throw new IllegalArgumentException("ERROR: Contact ID can't be changed");
 		}
 		
 	}
@@ -65,7 +69,7 @@ public class Contact {
 		 * @param firstName 
 		 */
 		
-		// Check if the length of the first name is equal to 10 and set to contact's first name
+		// Check if the length of the first name is less than 10 and set to contact's first name
 		if (String.valueOf(firstName).length() < 10 && String.valueOf(firstName).length() > 0) {
 			this.firstName = firstName;
 		} else {
@@ -90,7 +94,7 @@ public class Contact {
 		 * @param lastName 
 		 */
 		
-		// Check if the length of last name is equal to 10 and set to contact's last name
+		// Check if the length of last name is less than 10 and set to contact's last name
 		if (String.valueOf(lastName).length() < 10 && String.valueOf(lastName).length() > 0) {
 			this.lastName = lastName;
 		} else {
@@ -139,11 +143,11 @@ public class Contact {
 		 */
 		
 		// Check if the length of address is no longer than 30 and not null
-		if (String.valueOf(address).length() < 30 && String.valueOf(address).length() > 0) {
+		if (String.valueOf(address).length() <= 30 && String.valueOf(address).length() > 0) {
 			this.address = address;
 		} else {
 			// Send exception of invalid phone number
-			throw new IllegalArgumentException("ERROR: Invalid address")
+			throw new IllegalArgumentException("ERROR: Invalid address");
 		}
 	} 
 }
